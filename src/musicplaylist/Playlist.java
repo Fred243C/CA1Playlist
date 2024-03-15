@@ -9,26 +9,57 @@ package musicplaylist;
  * @author alexb
  */
 public class Playlist {
-
-    private Node head;
-    private Node tail;
+    
+    String name;
+    private Songs head;
+    private Songs tail;
     private int size;
 
-    public Playlist() {
-        this.head = null;
-        this.tail = null;
-        this.size = 0;
+    public Playlist(String name) {
+        this.name= name;
+        this.head= null;
+        this.tail= null;
+        this.size=0;
     }
-        //Add method
+    
+    //add method
+    
+    public void addSongs(String title, String artist, String genre){
+        
+        Songs newSongs = new Songs(title, artist, genre);
+        if(head == null){
+            head = newSongs;
+            tail = newSongs;
+        }else{
+            newSongs.prev = tail;
+            tail.next = newSongs;
+            tail = newSongs;            
+        }
+        size++;
+    }
+    
+    //Remove method
+    public void removeSongs(Songs songs){
+        Songs currSongs = head;
+        
+        while(currSongs != null){
+            currSongs = currSongs.next;
+            size++;
+                
+            }
+           if(currSongs == null){
+               System.out.println("Playlist Empty");
+        } else{
+               head = null;
+         
+           }
         
         
-}
-
-    public void addSongs(Song data){
-
-}
-
-
-}
-
+        
+            
+        }
+        
+        
+    }
+    
 
