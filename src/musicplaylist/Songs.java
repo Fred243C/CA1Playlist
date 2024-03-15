@@ -12,11 +12,15 @@ public class Songs {
     private String title;
     private String artist;
     private String genre;
-
+    Songs prev;
+    Songs next;
+    
     public Songs(String title, String artist, String genre) {
         this.title = title;
         this.artist = artist;
         this.genre = genre;
+        this.prev= null;
+        this.next= null;
     }
 
     public String getTitle() {
