@@ -50,6 +50,32 @@ public class PlaylistNode {
     }
     return false;
     }
+    
+    //Remove song
+    public void remove(Songs songs){
+        Node curr = head;
+        while(curr !=null){
+            if(curr.getSongs().equals(songs)){
+                Node prevNode= curr.getPrev();
+                Node nextNode= curr.getNext();
+                if(prevNode !=null){
+                    prevNode.setNext(nextNode);
+                }else{
+                    head = nextNode;
+                }
+                if(nextNode !=null){
+                    nextNode.setPrev(prevNode);
+                }else{
+                    tail = prevNode;
+                }
+                size--;
+                return;
+            }
+            curr = curr.getNext();
+        }
+    }
+    
+    
 }
 
 
