@@ -33,9 +33,9 @@ public class MusicMaster {
             if (genrePlaylist.containsKey(genre)) {
                 genrePlaylist.get(genre).add(lastSong);
             } else {
-                PlaylistNode newGenrePlaylist = new PlaylistNode();
-                newGenrePlaylist.add(lastSong);
-                genrePlaylist.put(genre, newGenrePlaylist);
+                PlaylistNode Pop = new PlaylistNode();
+                Pop.add(lastSong);
+                genrePlaylist.put(genre, Pop);
 
             }
             likedSongs.removeLast();
@@ -58,20 +58,18 @@ public class MusicMaster {
     }
 
     // Show number of Songs in a playlist
-    public void showNumberOfSongs(String playlistName) {
+    public void showNumberOfSongs(String genre) {
         int count;
-        if (playlistName.equalsIgnoreCase("liked"));
-        count = likedSongs.size();
-        System.out.println("liked Playlist:" + count);
-
-    }else if(genrePlaylist.containsKey (playlistNode) ){
-        count = genrePlaylists.get(playlistName).size();
-        System.out.println("Number of songs in " + playlistName + " playlist: " + count);
-
+        if (genre.equalsIgnoreCase(genre));
+        count = likedSongs.get(genre).size();
+        System.out.println("Number of songs in"+genre+"playlist:"+count);   
     }else{
+       System.out.println("Genre playlist  for'"+genre+"'not found");
+        
+        System.out.println("Number of songs in " + likedSongs + " playlist: " + count);
     System.out.println("Not found");
     }
-}
+
 // Create a repeatable playlist
      public Playlist createRepeatablePlaylist(){
       return new Playlist(true);
@@ -79,3 +77,4 @@ public class MusicMaster {
     
 
 
+}
