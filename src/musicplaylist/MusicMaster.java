@@ -26,8 +26,44 @@ public class MusicMaster {
     }
     //Move last added song from liked liked playlist to genre playlist
     public void moveToGenrePlaylist(String genre){
-        PlaylistNode tail = likedSongs.
+        Node lastSongNode= likedSongs.getLastSong();
+        if(lastSongNode !=null){
+            Songs lastSong = lastSongNode.getSongs();
+            if(genrePlaylist.containsKey(genre)){
+                genrePlaylist.get(genre).add(lastSong);
+            }else{
+                PlaylistNode newGenrePlaylist= new PlaylistNode();
+                newGenrePlaylist.add(lastSong);
+                genrePlaylist.put(genre, newGenrePlaylist);
+                
+            }
+            likedSongs.removeLast();
+        }else{
+            System.out.println("List empty.");
+        }
+        
     }
+    //Print Playlist
+    public void printPlaylist(String name){
+        if(name.equalsIgnoreCase("liked")){
+            likedSongs.print();
+        }else if(genrePlaylist.containsKey(name)){
+            genrePlaylist.get(name).print();
+            
+        }else{
+            System.out.println("Not found");
+        }
+    }
+    // Show number of Songs in a playlist
+    public void showNumberOfSongs(String name){
+        int count;
+        if(name.equalsIgnoreCase("liked"));
+        count = likedSongs.size();
+        System.out.println("liked Playlist:"+count);
+    }
+    
+    
+    
     }
     
     
