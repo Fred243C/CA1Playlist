@@ -74,8 +74,31 @@ public class PlaylistNode {
             curr = curr.getNext();
         }
     }
-    
-    
+    public void removeLast(){
+        if (tail !=null){
+            Node prevNode= tail.getPrev();
+            if(prevNode !=null){
+                prevNode.setNext(null);           
+        }else{
+                head = null;
+            }
+            tail = prevNode;
+            size--;
+        }
+    }
+    public Node getLastSong(){
+        return tail;
+    }
+    public void print(){
+        Node curr = head;
+        while(curr !=null){
+            System.out.println(curr.getSongs().getTitle()+curr.getSongs().getArtist()+curr.getSongs().getGenre());
+            curr = curr.getNext();
+        }
+    }
+    public int size(){
+        return size;
+    }
 }
 
 
