@@ -47,8 +47,7 @@ public class MainPlayList {
         // Show number of liked songs
         
         musicMaster.showNumberOfSongs("liked");
-        musicMaster.showNumberOfSongs("POp");
-        musicMaster.showNumberOfSongs("Rnb");
+        
         
         
         System.out.println("Pop Playlist:");

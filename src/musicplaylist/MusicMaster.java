@@ -83,6 +83,14 @@ public class MusicMaster {
         }
         
     }
+    public void showGenrePlaylist(String genre){
+        if(genrePlaylist.containsKey(genre)){
+            int count= genrePlaylist.get(genre).size();
+            System.out.println("Number of Songs"+genre+"playlist:"+ count);
+        }else{
+            System.out.println("Genre playlist for'"+genre+"'not found");
+        }
+    }
 
 // Create a repeatable playlist
      public PlaylistNode createRepeatablePlaylist(){
