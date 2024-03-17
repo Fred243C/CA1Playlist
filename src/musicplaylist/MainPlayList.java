@@ -34,18 +34,35 @@ public class MainPlayList {
         musicMaster.addToLikedSongs(song5);
         musicMaster.addToLikedSongs(song6);
         
-        System.out.println("Liked Songs:");
-        musicMaster.printPlaylist("liked");
-        System.out.println();
-        
+        //create Playlist genre
+       
         musicMaster.genrePlaylist("Pop");
         musicMaster.genrePlaylist("Rnb");
+        
+        //Move songs from liked to Playlist genre
         
         musicMaster.moveToGenrePlaylist("Pop");
         musicMaster.moveToGenrePlaylist("Rnb");
         
+        // Show number of liked songs
+        
+        musicMaster.showNumberOfSongs("liked");
+        musicMaster.showNumberOfSongs("POp");
+        musicMaster.showNumberOfSongs("Rnb");
+        
+        
         System.out.println("Pop Playlist:");
         musicMaster.printPlaylist("Pop");
+        System.out.println();
+        
+        System.out.println("Rnb Playlist:");
+        musicMaster.printPlaylist("Rnb");
+        System.out.println();
+        
+        //Print liked Songs
+        
+        System.out.println("Liked Songs:");
+        musicMaster.printPlaylist("liked");
         System.out.println();
        
     }
