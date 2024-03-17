@@ -23,13 +23,11 @@ public class MusicMaster {
     
    public void genrePlaylist(String genre){
        if(!genrePlaylist.containsValue(genre)){
-           PlaylistNode Pop= new PlaylistNode();
-           genrePlaylist.put(genre, Pop);
-           System.out.println("Genre Playlist:'"+Pop+"'successfully created");
-       }else if(!genrePlaylist.containsKey(genre)){
-           PlaylistNode Rnb = new PlaylistNode();
-           genrePlaylist.put(genre, Rnb);
-           System.out.println("genre playlist:'"+Rnb+"'genre already exists");
+           PlaylistNode newGenreSongs= new PlaylistNode();
+           genrePlaylist.put(genre, newGenreSongs);
+           System.out.println("Genre Playlist:'"+genre+"'successfully created");
+       }else {
+           System.out.println("genre playlist:'"+genre+"'genre already exists");
        }
    }
 
@@ -46,9 +44,9 @@ public class MusicMaster {
             if (genrePlaylist.containsKey(genre)) {
                 genrePlaylist.get(genre).add(lastSong);
             } else {
-                PlaylistNode Pop = new PlaylistNode();
-                Pop.add(lastSong);
-                genrePlaylist.put(genre, Pop);
+                PlaylistNode newGenreSongs = new PlaylistNode();
+                newGenreSongs.add(lastSong);
+                genrePlaylist.put(genre, newGenreSongs);
 
             }
             likedSongs.removeLast();
@@ -71,13 +69,17 @@ public class MusicMaster {
     }
 
     // Show number of Songs in a playlist
-    public void showNumberOfSongs(String genre) {
-        if (genrePlaylist.containsValue(genre)){
-            int count = genrePlaylist.get(genre).size();
-            System.out.println("Number of songs:"+genre+"playlist:"+ count);
+    public void showNumberOfSongs(String playlistName) {
+        int count;
+        if (playlistName.equalsIgnoreCase(playlistName)){
+            count=likedSongs.size();
+            System.out.println("Number of liked songs:"+ count);
             
+        }else if(genrePlaylist.containsKey(playlistName)){
+            count=genrePlaylist.get(playlistName).size();
+            System.out.println("Number of songs:"+playlistName+"playlist name:"+count);
         }else{
-            System.out.println("Number of songs:'"+genre+"'Not found");
+            System.out.println("No playlist.");
         }
         
     }

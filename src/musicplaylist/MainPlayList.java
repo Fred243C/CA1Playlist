@@ -37,6 +37,16 @@ public class MainPlayList {
         System.out.println("Liked Songs:");
         musicMaster.printPlaylist("liked");
         System.out.println();
+        
+        musicMaster.genrePlaylist("Pop");
+        musicMaster.genrePlaylist("Rnb");
+        
+        musicMaster.moveToGenrePlaylist("Pop");
+        musicMaster.moveToGenrePlaylist("Rnb");
+        
+        System.out.println("Pop Playlist:");
+        musicMaster.printPlaylist("Pop");
+        System.out.println();
        
     }
 }
