@@ -15,6 +15,12 @@ public class MainPlayList {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        MusicMaster musicMaster = new MusicMaster();
+        
+        //Add songs to the liked list
+        
+        Songs = new Songs(Title", "Artist","Pop");
        
     }
 }
