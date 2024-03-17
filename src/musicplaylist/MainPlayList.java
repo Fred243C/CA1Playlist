@@ -4,6 +4,8 @@
  */
 package musicplaylist;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author alexb
@@ -15,54 +17,48 @@ public class MainPlayList {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+
+        MusicMaster master = new MusicMaster();
+
+        master.addToLikedSongs(new Songs("Sous le vent", "garou", "Pop"));
+        master.addToLikedSongs(new Songs("When A woman love", "Rkelly", "Rnb"));
+        master.addToLikedSongs(new Songs("Le temps", "Tayc", "Pop"));
+        master.addToLikedSongs(new Songs("Sous le vent", "garou", "Pop"));
+        master.addToLikedSongs(new Songs("Hold my Hand", "MJ", "Rnb"));
+        master.addToLikedSongs(new Songs("People", "Libianca", "Pop"));
         
-        MusicMaster musicMaster = new MusicMaster();
+    //Mode songs to genre playlist
+    
+        master.moveToGenrePlaylist("Pop");
+        master.moveToGenrePlaylist("Rnb");
         
-        //Add songs to the liked list
-        
-        Songs song1= new Songs("Sous le vent","garou","Pop");
-        Songs song2= new Songs("When A woman love","Rkelly","Rnb");
-        Songs song3= new Songs("Le temps","Tayc","Pop");
-        Songs song4= new Songs("Sous le vent","garou","Pop");
-        Songs song5= new Songs("Hold my Hand","MJ","Rnb");
-        Songs song6= new Songs("People","Libianca","Pop");
-        
-        musicMaster.addToLikedSongs(song1);
-        musicMaster.addToLikedSongs(song2);
-        musicMaster.addToLikedSongs(song3);
-        musicMaster.addToLikedSongs(song4);
-        musicMaster.addToLikedSongs(song5);
-        musicMaster.addToLikedSongs(song6);
-        
-        //create Playlist genre
+        //Show number of songs for each playlist
+
        
-        musicMaster.genrePlaylist("Pop");
-        musicMaster.genrePlaylist("Rnb");
-        
-        //Move songs from liked to Playlist genre
-        
-        musicMaster.moveToGenrePlaylist("Pop");
-        musicMaster.moveToGenrePlaylist("Rnb");
-        
-        // Show number of liked songs
-        
-        musicMaster.showNumberOfSongs("liked");
         
         
+        System.out.println("Number of songs for liked playlist");
+         master.showNumberOfSongs("liked");
         
-        System.out.println("Pop Playlist:");
-        musicMaster.printPlaylist("Pop");
-        System.out.println();
+        System.out.println("Number of songs for Pop playlist");
+        master.showNumberOfSongs("Pop");
         
-        System.out.println("Rnb Playlist:");
-        musicMaster.printPlaylist("Rnb");
-        System.out.println();
+        System.out.println("Number of songs for Rnb playlist");
+        master.showNumberOfSongs("Rnb");
+        //Print each playlist
+
         
-        //Print liked Songs
-        
-        System.out.println("Liked Songs:");
-        musicMaster.printPlaylist("liked");
-        System.out.println();
        
+        
+        
+        System.out.println("Liked Playlist");
+        master.printPlaylist("liked");
+        
+        System.out.println("Pop Playlist");
+         master.printPlaylist("Pop");
+         
+        System.out.println("Rnb Playlist");
+        master.printPlaylist("Rnb");
+
     }
 }

@@ -4,6 +4,7 @@
  */
 package musicplaylist;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -20,18 +21,19 @@ public class MusicMaster {
         genrePlaylist = new HashMap<>();
     }
     //Create genrePlaylist
-    
-   public void genrePlaylist(String genre){
-       if(!genrePlaylist.containsValue(genre)){
-           PlaylistNode newGenreSongs= new PlaylistNode();
-           genrePlaylist.put(genre, newGenreSongs);
-           System.out.println("Genre Playlist:'"+genre+"'successfully created");
-       }else {
-           System.out.println("genre playlist:'"+genre+"'genre already exists");
-       }
-   }
 
-    // Add songs to the liked playlist
+    public void addToGenrePlaylist(String genre, Songs songs) {
+
+        if (!genrePlaylist.containsValue(genre)) {
+
+            genrePlaylist.get(genre).add(songs);
+
+        } else {
+            System.out.println("genre playlist:'" + genre + "'genre not exists");
+        }
+    }
+
+    // Add songs to the liked playlist using ArrayList
     public void addToLikedSongs(Songs songs) {
         likedSongs.add(songs);
     }
@@ -62,41 +64,31 @@ public class MusicMaster {
             likedSongs.print();
         } else if (genrePlaylist.containsKey(playlistName)) {
             genrePlaylist.get(playlistName).print();
-
         } else {
-            System.out.println("Not found");
+            System.out.println("Playlist not found");
         }
     }
 
     // Show number of Songs in a playlist
     public void showNumberOfSongs(String playlistName) {
         int count;
-        if (playlistName.equalsIgnoreCase(playlistName)){
-            count=likedSongs.size();
-            System.out.println("Number of liked songs:"+ count);
-            
-        }else if(genrePlaylist.containsKey(playlistName)){
-            count=genrePlaylist.get(playlistName).size();
-            System.out.println("Number of songs:"+playlistName+"playlist name:"+count);
-        }else{
+        if (playlistName.equalsIgnoreCase("liked")) {
+            count = likedSongs.size();
+            System.out.println("Number of liked songs:" + count);
+
+        } else if (genrePlaylist.containsKey(playlistName)) {
+            count = genrePlaylist.get(playlistName).size();
+            System.out.println("Number of songs:" + playlistName + "playlist name:" + count);
+        } else {
             System.out.println("No playlist.");
         }
-        
-    }
-    public void showGenrePlaylist(String genre){
-        if(genrePlaylist.containsKey(genre)){
-            int count= genrePlaylist.get(genre).size();
-            System.out.println("Number of Songs"+genre+"playlist:"+ count);
-        }else{
-            System.out.println("Genre playlist for'"+genre+"'not found");
-        }
+
     }
 
 // Create a repeatable playlist
-     public PlaylistNode createRepeatablePlaylist(){
-      return new PlaylistNode(true);
-     }
-    
-
+    public void repeatablePlaylist(String name) {
+        PlaylistNode repeatablePlaylist = new PlaylistNode(true);
+        genrePlaylist.put(name, repeatablePlaylist);
+    }
 
 }
